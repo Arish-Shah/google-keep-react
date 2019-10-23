@@ -1,0 +1,23 @@
+.Topbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.keep img {
+	height: 50px;
+	width: 50px;
+}
+
+.react img {
+	height: 45px;
+	width: 45px;
+}
+
+.firebase img {
+	height: 40px;
+}
+
+.plus {
+	padding: 0 10px;
+}
