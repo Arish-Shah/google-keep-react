@@ -3,6 +3,9 @@
 	--lighter-color: #dadce0;
 	--background: #202124;
 	--lighter-background: #2d2e30;
+	--lightest-background: #555;
+	--shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+	--radius: 0.65rem;
 }
 
 *,
@@ -25,5 +28,5 @@ body {
 	width: 100%;
 	max-width: 860px;
 	margin: 0 auto;
-	padding: 3rem 1rem;
+	padding: 1rem;
 }

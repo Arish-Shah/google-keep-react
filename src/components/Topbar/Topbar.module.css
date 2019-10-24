@@ -2,22 +2,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 1.5rem 0 3rem 0;
 }
 
 .keep img {
-	height: 50px;
-	width: 50px;
+	height: 3rem;
+	width: 3rem;
 }
 
 .react img {
-	height: 45px;
-	width: 45px;
+	height: 2.85rem;
+	width: 2.85rem;
 }
 
 .firebase img {
-	height: 40px;
+	height: 2.65rem;
 }
 
 .plus {
-	padding: 0 10px;
+	padding: 0 0.9rem;
 }

@@ -4,7 +4,7 @@ import styles from './AddNote.module.css'
 const AddNote = () => {
 	return (
 		<div className={styles.AddNote}>
-			<h1>This rules!</h1>
+			<span>Take a note...</span>
 		</div>
 	)
 }
