@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Topbar from './components/Topbar/Topbar'
-import AddNote from './components/AddNote/AddNote'
+import Topbar from './components/Topbar'
+import AddNote from './components/AddNote'
 
 const App = () => {
 	return (
