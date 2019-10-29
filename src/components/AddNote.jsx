@@ -14,9 +14,14 @@ const StyledAddNote = styled.div`
 
 const AddNote = () => {
   return (
-    <StyledAddNote>
-      <span>Component!</span>
-    </StyledAddNote>
+    <>
+      <StyledAddNote>
+        <span>Show this!</span>
+      </StyledAddNote>
+      <StyledAddNote>
+        <span>Show this onFocus!</span>
+      </StyledAddNote>
+    </>
   );
 };
 
