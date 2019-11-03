@@ -14,9 +14,11 @@ const StyledAddNote = styled.div`
 
 const AddNote = () => {
   return (
-    <StyledAddNote>
-      <span>Hello!</span>
-    </StyledAddNote>
+    <StyledAddNote
+      contentEditable={true}
+      onFocus={() => console.log('focussed!')}
+      onBlur={() => console.log('blurred!')}
+    ></StyledAddNote>
   );
 };
 
