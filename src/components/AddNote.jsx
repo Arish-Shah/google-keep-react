@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledAddNote = styled.div`
@@ -13,15 +13,12 @@ const StyledAddNote = styled.div`
 `;
 
 const AddNote = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <>
-      <StyledAddNote>
-        <span>Show this!</span>
-      </StyledAddNote>
-      <StyledAddNote>
-        <span>Show this onFocus!</span>
-      </StyledAddNote>
-    </>
+    <StyledAddNote>
+      <h1></h1>
+    </StyledAddNote>
   );
 };
 
