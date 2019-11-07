@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledAddNote = styled.div`
   margin: 0 auto;
@@ -10,16 +10,10 @@ const StyledAddNote = styled.div`
   padding: 1rem;
   border: 1px solid var(--lightest-background);
   box-shadow: var(--shadow);
-`;
+`
 
 const AddNote = () => {
-  const [open, setOpen] = useState(false);
+  return <StyledAddNote contentEditable={true}></StyledAddNote>
+}
 
-  return (
-    <StyledAddNote>
-      <h1></h1>
-    </StyledAddNote>
-  );
-};
-
-export default AddNote;
+export default AddNote

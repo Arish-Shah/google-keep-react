@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import Topbar from './components/Topbar';
-import AddNote from './components/AddNote';
+import Topbar from './components/Topbar'
+import AddNote from './components/AddNote'
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       <Topbar />
       <AddNote />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
