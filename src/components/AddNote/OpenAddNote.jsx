@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const StyledForm = styled.form`
@@ -24,11 +24,13 @@ const StyledTitle = styled.input`
   font-size: 1rem;
 `
 
-const StyledContent = styled.textarea`
+const StyledContent = styled.div`
   resize: none;
   font-weight: 400;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
+  max-height: 100vh;
+  line-height: 1.5;
 `
 
 const StyledFooter = styled.div`
@@ -55,7 +57,8 @@ const StyledFooter = styled.div`
   }
 `
 
-const OpenAddNote = ({ handleOpen }) => {
+const OpenAddNote = ({ handleOpen, addNewNote }) => {
+  const [content, setContent] = useState('')
   const contentRef = React.createRef()
 
   useEffect(() => {
@@ -64,14 +67,28 @@ const OpenAddNote = ({ handleOpen }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    const titleText = event.target[0].value.trim()
+    const contentText = content.trim()
+
+    if (!contentText) return
+    addNewNote({ title: titleText, content: contentText })
+    handleOpen()
   }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledTitle placeholder="Title" />
-      <StyledContent ref={contentRef} placeholder="Take a note..." />
+      <StyledContent
+        contentEditable={true}
+        ref={contentRef}
+        placeholder="Take a note..."
+        value={content}
+        onInput={e => setContent(e.currentTarget.textContent)}
+      />
       <StyledFooter>
-        <button onClick={handleOpen}>Close</button>
+        <button type="reset" onClick={handleOpen}>
+          Close
+        </button>
         <button type="submit" className="add-button">
           Add
         </button>

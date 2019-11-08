@@ -23,8 +23,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
-  *[placeholder]::before {
+  [contenteditable=true]:empty:before {
     content: attr(placeholder);
+    display: block;
     color: var(--placeholder);
   }
 
