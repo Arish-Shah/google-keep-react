@@ -19,24 +19,22 @@ const StyledAddNote = styled.div`
   margin: 0 auto;
 `
 
-const AddNote = ({ addNote }) => {
+const AddNote = () => {
   const [open, setOpen] = useState(false)
 
-  const handleClose = () => setOpen(true)
-  const handleOpen = () => setOpen(false)
+  const handleClose = () => setOpen(false)
+  const handleOpen = () => setOpen(true)
 
-  const addNewNote = newNote => addNote(newNote)
-
-  let note = open ? (
-    <OpenAddNote handleOpen={handleOpen} addNewNote={addNewNote} />
+  let displayAddNote = open ? (
+    <OpenAddNote handleClose={handleClose} />
   ) : (
-    <ClosedAddNote handleClose={handleClose} />
+    <ClosedAddNote handleOpen={handleOpen} />
   )
 
   return (
     <>
-      {open ? <Backdrop onClick={handleOpen} /> : null}
-      <StyledAddNote>{note}</StyledAddNote>
+      {open && <Backdrop onClick={handleClose} />}
+      <StyledAddNote>{displayAddNote}</StyledAddNote>
     </>
   )
 }

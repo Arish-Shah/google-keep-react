@@ -8,12 +8,13 @@ const StyledClosedAddNote = styled.div`
   border-radius: var(--radius);
   background: var(--background);
   box-shadow: var(--shadow);
+  cursor: text;
 `
 
-const ClosedAddNote = ({ handleClose }) => {
+const ClosedAddNote = ({ handleOpen }) => {
   return (
     <StyledClosedAddNote
-      onClick={handleClose}
+      onClick={handleOpen}
       contentEditable={true}
       placeholder="Take a note..."
     />

@@ -1,11 +1,18 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const Notes = ({ notes }) => {
   return (
-    <div className="Component">
-      <h1>Heading!</h1>
+    <div className="notes">
+      <span>HEllo!</span>
     </div>
   )
 }
 
-export default Notes
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps)(Notes)
