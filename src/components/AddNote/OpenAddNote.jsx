@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+
+import { addNote } from '../../store/actions'
 
 const StyledForm = styled.form`
   position: relative;
@@ -57,7 +60,13 @@ const StyledFooter = styled.div`
   }
 `
 
-const OpenAddNote = ({ handleClose }) => {
+const _id = () =>
+  '_' +
+  Math.random()
+    .toString(36)
+    .substr(2, 9)
+
+const OpenAddNote = ({ handleClose, onAddNote }) => {
   const contentRef = React.createRef()
 
   useEffect(() => {
@@ -66,10 +75,18 @@ const OpenAddNote = ({ handleClose }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
+
+    const id = _id()
     const title = event.target[0].value.trim()
     const content = contentRef.current.textContent.trim()
 
     if (!content) return
+
+    onAddNote({
+      id,
+      title,
+      content,
+    })
     handleClose()
   }
 
@@ -91,4 +108,13 @@ const OpenAddNote = ({ handleClose }) => {
   )
 }
 
-export default OpenAddNote
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddNote: note => dispatch(addNote(note)),
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(OpenAddNote)
