@@ -1,14 +1,15 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
     --color: #e8eaed;
     --lighter-color: #dadce0;
-    --background: #202124;
-    --lighter-background: #2d2e30;
-    --lightest-background: #555;
+    --body: #202124;
+    --background: #2d2e30;
+    --border: #646464;
+    --placeholder: #84848C;
     --shadow: 0 0 8px rgba(0, 0, 0, 0.65);
-    --radius: 0.65rem;
+    --radius: 0.5rem;
   }
 
   *,
@@ -22,9 +23,18 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
+  *[placeholder]::before {
+    content: attr(placeholder);
+    color: var(--placeholder);
+  }
+
+  *::placeholder {
+    color: var(--placeholder);
+  }
+
   body {
     font-size: 100%;
-    background: var(--background);
+    background: var(--body);
     color: var(--color);
   }
 
@@ -34,4 +44,4 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 1rem;
   }
-`;
+`

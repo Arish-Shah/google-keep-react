@@ -1,19 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import ClosedAddNote from './AddNote/ClosedAddNote'
+import OpenAddNote from './AddNote/OpenAddNote'
+
+const Backdrop = styled.div`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 9;
+`
+
 const StyledAddNote = styled.div`
-  margin: 0 auto;
-  background: var(--lighter-background);
   width: 100%;
-  max-width: 600px;
-  border-radius: var(--radius);
-  padding: 1rem;
-  border: 1px solid var(--lightest-background);
-  box-shadow: var(--shadow);
+  max-width: 550px;
+  margin: 0 auto;
 `
 
 const AddNote = () => {
-  return <StyledAddNote contentEditable={true}></StyledAddNote>
+  const [open, setOpen] = useState(true)
+
+  const handleClose = () => setOpen(true)
+  const handleOpen = () => setOpen(false)
+
+  let addNote = open ? (
+    <OpenAddNote handleOpen={handleOpen} />
+  ) : (
+    <ClosedAddNote handleClose={handleClose} />
+  )
+
+  return (
+    <>
+      {open ? <Backdrop onClick={handleOpen} /> : null}
+      <StyledAddNote>{addNote}</StyledAddNote>
+    </>
+  )
 }
 
 export default AddNote
