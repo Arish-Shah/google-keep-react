@@ -8,14 +8,6 @@ const initialState = {
       title: 'Another Post per se',
       content: '',
     },
-    {
-      id: '_frahil',
-      title: 'Hello',
-      content:
-        'This is a test message, This is a test message, This is a test message, This is a test message, This is a test message, This is a test message, This is a test message, This is a test message, This is a test message, This is a test message',
-    },
-    { id: '_shah', title: 'Hello', content: 'This is a test message' },
-    { id: '_dfakdsjflk', title: 'Hello', content: 'This is a test message' },
   ],
   selectedNote: null,
 }
@@ -46,6 +38,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         selectedNote: action.note,
+      }
+    }
+
+    case actionTypes.REMOVE_SELECT_NODE: {
+      return {
+        ...state,
+        selectedNote: null,
       }
     }
 

@@ -30,8 +30,8 @@ const Notes = ({ notes, onEditNote }) => {
   return (
     <Container>
       <Masonry options={masonryOptions} style={{ margin: '0 auto' }}>
-        {notes.map(note => (
-          <Note key={note.id} details={note} onClick={handleClick} />
+        {notes.map((note, index) => (
+          <Note key={index} details={note} onClick={handleClick} />
         ))}
       </Masonry>
     </Container>

@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     --background: #2d2e30;
     --border: #646464;
     --placeholder: #84848C;
+    --image: #9e9ea0;
     --shadow: 0 0 8px rgba(0, 0, 0, 0.65);
     --radius: 0.5rem;
   }
@@ -27,16 +28,22 @@ export const GlobalStyle = createGlobalStyle`
     content: attr(placeholder);
     display: block;
     color: var(--placeholder);
+    cursor: text;
   }
 
   *::placeholder {
     color: var(--placeholder);
+    cursor: text;
   }
 
   body {
     font-size: 100%;
     background: var(--body);
     color: var(--color);
+
+    &.fixed {
+      overflow: hidden;
+    }
   }
 
   .App {

@@ -20,6 +20,12 @@ export const selectNode = note => {
   }
 }
 
+export const removeSelectedNode = () => {
+  return {
+    type: actionTypes.REMOVE_SELECT_NODE,
+  }
+}
+
 export const deleteNote = id => {
   return {
     type: actionTypes.DELETE_NOTE,
