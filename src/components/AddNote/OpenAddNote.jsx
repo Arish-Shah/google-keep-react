@@ -52,11 +52,6 @@ const StyledFooter = styled.div`
     &:hover {
       background-color: rgba(255, 255, 255, 0.025);
     }
-
-    &:last-child {
-      color: var(--background);
-      background: var(--color);
-    }
   }
 `
 
@@ -90,6 +85,10 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
     handleClose()
   }
 
+  const handleKeyUp = event => {
+    if (event.keyCode === 27) handleClose()
+  }
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledTitle placeholder="Title" />
@@ -97,11 +96,9 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
         ref={contentRef}
         placeholder="Take a note..."
         contentEditable={true}
+        onKeyUp={handleKeyUp}
       />
       <StyledFooter>
-        <button type="reset" onClick={handleClose}>
-          Close
-        </button>
         <button type="submit">Add</button>
       </StyledFooter>
     </StyledForm>

@@ -41,7 +41,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .App {
     width: 100%;
-    max-width: 860px;
     margin: 0 auto;
     padding: 1rem;
   }

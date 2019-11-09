@@ -1,32 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import Masonry from 'react-masonry-component'
 
 import Note from './Note'
 import { selectNode } from '../../store/actions'
 
-const StyledNotes = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15px;
-  width: 100%;
-  padding: 2rem 1rem;
-  max-width: 860px;
-  margin: 0 auto;
+const masonryOptions = {
+  isFitWidth: true,
+  gutter: 10,
+  transitionDuration: '0.2s',
+}
+
+const Container = styled.div`
+  padding: 2rem 0;
+
+  @media (max-width: 600px) {
+    padding: 1.25rem 0;
+  }
 `
 
 const Notes = ({ notes, onEditNote }) => {
+  const handleClick = note => {
+    onEditNote(note)
+  }
+
   return (
-    <StyledNotes>
-      {notes.map(note => (
-        <Note
-          key={note.id}
-          id={note.id}
-          title={note.title}
-          content={note.content}
-        />
-      ))}
-    </StyledNotes>
+    <Container>
+      <Masonry options={masonryOptions} style={{ margin: '0 auto' }}>
+        {notes.map(note => (
+          <Note key={note.id} details={note} onClick={handleClick} />
+        ))}
+      </Masonry>
+    </Container>
   )
 }
 

@@ -17,6 +17,10 @@ const StyledAddNote = styled.div`
   width: 100%;
   max-width: 550px;
   margin: 0 auto;
+
+  @media (max-width: 800px) {
+    max-width: 490px;
+  }
 `
 
 const AddNote = () => {

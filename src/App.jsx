@@ -6,11 +6,11 @@ import Notes from './components/Notes/Notes'
 
 const App = () => {
   return (
-    <>
+    <div className="App">
       <Topbar />
       <AddNote />
       <Notes />
-    </>
+    </div>
   )
 }
 
