@@ -52,6 +52,11 @@ const StyledFooter = styled.div`
     &:hover {
       background-color: rgba(255, 255, 255, 0.025);
     }
+
+    &[type='submit'] {
+      background: var(--color);
+      color: var(--background);
+    }
   }
 `
 
@@ -99,6 +104,9 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
         onKeyUp={handleKeyUp}
       />
       <StyledFooter>
+        <button type="reset" onClick={handleClose}>
+          Cancel
+        </button>
         <button type="submit">Add</button>
       </StyledFooter>
     </StyledForm>

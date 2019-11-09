@@ -7,13 +7,15 @@ import Note from './Note'
 import { selectNode } from '../../store/actions'
 
 const masonryOptions = {
-  isFitWidth: true,
+  isFitWidth: window.innerWidth > 550 ? true : false,
   gutter: 10,
   transitionDuration: '0.2s',
 }
 
 const Container = styled.div`
   padding: 2rem 0;
+  max-width: 1024px;
+  margin: 0 auto;
 
   @media (max-width: 600px) {
     padding: 1.25rem 0;
