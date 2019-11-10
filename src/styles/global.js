@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --placeholder: #84848C;
     --image: #9e9ea0;
     --shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    --large-shadow: 0 0 12px rgba(0, 0, 0, 0.65);
     --radius: 0.5rem;
   }
 
@@ -40,6 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     background: var(--body);
     color: var(--color);
+    overflow-x: hidden;
 
     &.fixed {
       overflow: hidden;

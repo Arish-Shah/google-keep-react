@@ -13,14 +13,21 @@ export const addNote = note => {
   }
 }
 
-export const selectNode = note => {
+export const selectNote = note => {
   return {
     type: actionTypes.SELECT_NOTE,
     note,
   }
 }
 
-export const removeSelectedNode = () => {
+export const updateNote = note => {
+  return {
+    type: actionTypes.UPDATE_NOTE,
+    note,
+  }
+}
+
+export const removeSelectedNote = () => {
   return {
     type: actionTypes.REMOVE_SELECT_NODE,
   }

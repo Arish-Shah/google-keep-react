@@ -30,6 +30,7 @@ const StyledTitle = styled.input`
 const StyledContent = styled.div`
   resize: none;
   font-weight: 400;
+  font-size: 1rem;
   font-size: 0.875rem;
   padding: 0.5rem 1rem;
   max-height: 100vh;

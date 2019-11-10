@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import Masonry from 'react-masonry-component'
 
 import Note from './Note'
-import { selectNode } from '../../store/actions'
+import { selectNote } from '../../store/actions'
 
 const masonryOptions = {
   isFitWidth: window.innerWidth > 550 ? true : false,
   gutter: 10,
-  transitionDuration: '0.2s',
+  transitionDuration: '150ms',
 }
 
 const Container = styled.div`
@@ -30,8 +30,8 @@ const Notes = ({ notes, onEditNote }) => {
   return (
     <Container>
       <Masonry options={masonryOptions} style={{ margin: '0 auto' }}>
-        {notes.map((note, index) => (
-          <Note key={index} details={note} onClick={handleClick} />
+        {notes.map(note => (
+          <Note key={note.id} details={note} onClick={handleClick} />
         ))}
       </Masonry>
     </Container>
@@ -46,7 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onEditNote: note => dispatch(selectNode(note)),
+    onEditNote: note => dispatch(selectNote(note)),
   }
 }
 

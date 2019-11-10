@@ -48,6 +48,17 @@ const reducer = (state = initialState, action) => {
       }
     }
 
+    case actionTypes.UPDATE_NOTE: {
+      const updatedNotes = [...state.notes]
+      const index = updatedNotes.findIndex(note => note.id === action.note.id)
+      updatedNotes.splice(index, 1)
+      updatedNotes.unshift(action.note)
+      return {
+        ...state,
+        notes: updatedNotes,
+      }
+    }
+
     case actionTypes.DELETE_NOTE: {
       const updatedNotes = [...state.notes]
       const index = updatedNotes.findIndex(note => note.id === action.id)
