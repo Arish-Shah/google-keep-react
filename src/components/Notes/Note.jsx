@@ -13,10 +13,6 @@ const StyledNote = styled.div`
   background: var(--background);
   margin-bottom: 0.5rem;
 
-  &:hover {
-    border-color: var(--color);
-  }
-
   @media (max-width: 550px) {
     width: 100%;
   }

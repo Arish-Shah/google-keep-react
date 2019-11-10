@@ -14,39 +14,44 @@ const EditNote = ({
 }) => {
   const contentRef = React.createRef()
   const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
 
   useEffect(() => {
     if (selectedNote) {
-      //cursor to the end of div
       contentRef.current.focus()
-
       setTitle(selectedNote.title)
-      setContent(selectedNote.content)
 
       document.body.classList.add('fixed')
     } else {
       document.body.classList.remove('fixed')
     }
-  }, [selectedNote, contentRef])
+  }, [selectedNote]) // eslint-disable-line
 
   const handleKeyUp = event => {
     if (event.keyCode === 27) onRemoveSelectedNote()
   }
 
   const handleDelete = () => {
-    onDeleteNote(selectedNote.id)
+    if (window.confirm('Are you sure you want to delete this Note?')) {
+      onDeleteNote(selectedNote.id)
+    }
     onRemoveSelectedNote()
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-    if (title.trim() !== '' || contentRef.current.textContent.trim() !== '')
+
+    let content = contentRef.current.textContent.trim()
+
+    if (
+      (title !== selectedNote.title || content !== selectedNote.content) &&
+      (title.trim() !== '' || content !== '')
+    ) {
       onUpdateNote({
         id: selectedNote.id,
         title,
         content: contentRef.current.textContent,
       })
+    }
 
     onRemoveSelectedNote()
   }
@@ -64,7 +69,7 @@ const EditNote = ({
           />
           <ContentEditable
             innerRef={contentRef}
-            html={content}
+            html={selectedNote.content}
             className="textarea"
             onKeyUp={handleKeyUp}
           />

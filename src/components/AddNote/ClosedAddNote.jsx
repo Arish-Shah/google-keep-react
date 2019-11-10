@@ -18,14 +18,14 @@ const StyledClosedAddNote = styled.div`
 const Add = styled.span`
   position: absolute;
   font-size: 1.5rem;
-  width: 1.35rem;
-  height: 1.35rem;
-  line-height: 0.65;
+  width: 1.25rem;
+  height: 1.25rem;
+  line-height: 0.53;
   text-align: center;
   color: var(--image);
   border: 1.5px solid var(--image);
   border-radius: 3px;
-  top: 0.75rem;
+  top: 0.85rem;
   right: 0.75rem;
   cursor: pointer;
 
