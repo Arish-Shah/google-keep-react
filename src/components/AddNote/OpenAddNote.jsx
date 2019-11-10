@@ -31,10 +31,11 @@ const StyledContent = styled.div`
   resize: none;
   font-weight: 400;
   font-size: 1rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   padding: 0.5rem 1rem;
   max-height: 100vh;
   line-height: 1.5;
+  white-space: pre-wrap;
 `
 
 const StyledFooter = styled.div`

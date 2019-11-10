@@ -1,15 +1,27 @@
 import * as actionTypes from './actionTypes'
+import axios from '../axios-notes'
 
+//Init Note action
 export const initNotes = () => {
-  return {
-    type: actionTypes.INIT_NOTES,
+  return async dispatch => {
+    const response = await axios.get('/notes.json')
+    const data = await response.data
+    dispatch(initNotesSuccess(data))
   }
 }
 
-export const addNote = note => {
+const initNotesSuccess = notes => {
   return {
-    type: actionTypes.ADD_NOTE,
-    note,
+    type: actionTypes.INIT_NOTES,
+    notes,
+  }
+}
+
+//Add Note action
+export const addNote = note => {
+  return async dispatch => {
+    await axios.post('/notes.json', note)
+    dispatch(initNotes())
   }
 }
 

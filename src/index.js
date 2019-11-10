@@ -1,16 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import ReduxThunk from 'redux-thunk'
 
 import App from './App.jsx'
 import { GlobalStyle } from './styles/global'
 import rootReducer from './store/reducer'
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk))
 
 ReactDOM.render(
   <Provider store={store}>
@@ -19,7 +17,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
-
-if (module.hot) {
-  module.hot.accept()
-}

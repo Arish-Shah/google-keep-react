@@ -22,17 +22,42 @@ const Container = styled.div`
   }
 `
 
+const Spinner = styled.div`
+  height: 4rem;
+  width: 4rem;
+  border: 0.4rem solid var(--background);
+  border-top-color: var(--color);
+  border-radius: 100rem;
+  animation: rotate 1s infinite ease-in-out;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`
+
 const Notes = ({ notes, onEditNote }) => {
   const handleClick = note => {
     onEditNote(note)
   }
 
+  let displayContent = <Spinner />
+
+  if (notes) {
+    const indices = Object.keys(notes)
+    displayContent = indices.map(index => (
+      <Note key={index} details={notes[index]} onClick={handleClick} />
+    ))
+  }
+
   return (
     <Container>
       <Masonry options={masonryOptions} style={{ margin: '0 auto' }}>
-        {notes.map(note => (
-          <Note key={note.id} details={note} onClick={handleClick} />
-        ))}
+        {displayContent}
       </Masonry>
     </Container>
   )

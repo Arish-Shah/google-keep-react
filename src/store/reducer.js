@@ -1,36 +1,16 @@
 import * as actionTypes from './actionTypes'
 
 const initialState = {
-  notes: [
-    { id: '_fkalf9fa', title: 'Hello', content: 'This is a test message' },
-    {
-      id: '_arish',
-      title: 'Another Post per se',
-      content: '',
-    },
-  ],
+  notes: null,
   selectedNote: null,
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.INIT_NOTES: {
-      if (localStorage.getItem('notes')) {
-        const updatedNotes = JSON.parse(localStorage.getItem('notes'))
-        return {
-          ...state,
-          notes: updatedNotes,
-        }
-      } else return state
-    }
-
-    case actionTypes.ADD_NOTE: {
-      const updatedNotes = [...state.notes]
-      updatedNotes.unshift(action.note)
-      //localStorage.setItem('notes', JSON.stringify(updatedNotes))
       return {
         ...state,
-        notes: updatedNotes,
+        notes: action.notes,
       }
     }
 

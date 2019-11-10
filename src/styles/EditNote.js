@@ -44,6 +44,7 @@ export const StyledModal = styled.form`
   .textarea {
     padding-top: 0rem;
     min-height: 3.5rem;
+    white-space: pre-wrap;
   }
 `
 

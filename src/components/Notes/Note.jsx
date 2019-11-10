@@ -8,6 +8,7 @@ const StyledNote = styled.div`
   min-height: 6rem;
   height: auto;
   width: 15rem;
+  white-space: pre-wrap;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--background);
