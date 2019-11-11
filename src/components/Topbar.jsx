@@ -30,22 +30,20 @@ const StyledTopbar = styled.div`
   }
 `
 
-const Topbar = () => {
-  return (
-    <StyledTopbar>
-      <span className="keep">
-        <img src={keep} alt="Google Keep" />
-      </span>
-      <span className="plus">+</span>
-      <span className="react">
-        <img src={react} alt="React" />
-      </span>
-      <span className="plus">+</span>
-      <span className="firebase">
-        <img src={firebase} alt="Firebase" />
-      </span>
-    </StyledTopbar>
-  )
-}
+const Topbar = () => (
+  <StyledTopbar>
+    <span className="keep">
+      <img src={keep} alt="Google Keep" />
+    </span>
+    <span className="plus">+</span>
+    <span className="react">
+      <img src={react} alt="React" />
+    </span>
+    <span className="plus">+</span>
+    <span className="firebase">
+      <img src={firebase} alt="Firebase" />
+    </span>
+  </StyledTopbar>
+)
 
 export default Topbar

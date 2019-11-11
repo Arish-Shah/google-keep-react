@@ -16,16 +16,11 @@ const StyledClosedAddNote = styled.div`
   cursor: text;
 `
 
-const ClosedAddNote = ({ handleOpen }) => {
-  return (
-    <Container onClick={handleOpen}>
-      <StyledClosedAddNote
-        contentEditable={true}
-        placeholder="Take a note..."
-      />
-      <PlusIcon />
-    </Container>
-  )
-}
+const ClosedAddNote = ({ handleOpen }) => (
+  <Container onClick={handleOpen}>
+    <StyledClosedAddNote contentEditable={true} placeholder="Take a note..." />
+    <PlusIcon />
+  </Container>
+)
 
 export default ClosedAddNote
