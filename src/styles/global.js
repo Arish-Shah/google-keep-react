@@ -52,6 +52,5 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
     padding: 1rem;
-    min-height: calc(100vh - 40px);
   }
 `
