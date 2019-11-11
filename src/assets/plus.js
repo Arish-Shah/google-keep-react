@@ -11,10 +11,6 @@ const SVG = styled.svg`
   &:hover {
     fill: var(--color);
   }
-
-  @media (max-width: 600px) {
-    top: 0.675rem;
-  }
 `
 
 const PlusIcon = () => (
