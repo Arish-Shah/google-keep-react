@@ -65,6 +65,18 @@ const EditNote = ({
     onRemoveSelectedNote()
   }
 
+  const pasteAsPlainText = event => {
+    event.preventDefault()
+
+    const text = event.clipboardData.getData('text/plain')
+    document.execCommand('insertHTML', false, text)
+  }
+
+  const highlightAll = () => {
+    document.execCommand('selectAll', false, null)
+    document.getSelection().collapseToEnd()
+  }
+
   return (
     isOpen && (
       <>
@@ -81,6 +93,8 @@ const EditNote = ({
             html={content}
             className="textarea"
             onKeyUp={handleKeyUp}
+            onFocus={highlightAll}
+            onPaste={pasteAsPlainText}
           />
           <Footer>
             <span className="time-stamp">Edited {localeTime}</span>

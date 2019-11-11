@@ -7,6 +7,16 @@ export const StyledBackdrop = styled.div`
   height: 100%;
   width: 100%;
   background: rgba(32, 33, 36, 0.75);
+  animation: fade 500ms ease;
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `
 
 export const StyledModal = styled.form`
