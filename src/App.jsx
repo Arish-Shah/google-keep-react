@@ -5,6 +5,7 @@ import Topbar from './components/Topbar'
 import AddNote from './components/AddNote'
 import Notes from './components/Notes/Notes'
 import EditNote from './components/EditNote'
+import Footer from './components/Footer'
 import { initNotes } from './store/actions'
 
 const App = ({ selectedNote, onInitNotes }) => {
@@ -13,15 +14,18 @@ const App = ({ selectedNote, onInitNotes }) => {
   }, []) //eslint-disable-line
 
   return (
-    <div className="App">
-      <Topbar />
-      <AddNote />
-      <Notes />
-      <EditNote
-        isOpen={selectedNote ? true : false}
-        selectedNote={selectedNote}
-      />
-    </div>
+    <>
+      <div className="App">
+        <Topbar />
+        <AddNote />
+        <Notes />
+        <EditNote
+          isOpen={selectedNote ? true : false}
+          selectedNote={selectedNote}
+        />
+      </div>
+      <Footer />
+    </>
   )
 }
 

@@ -4,12 +4,16 @@ import styled from 'styled-components'
 const SVG = styled.svg`
   fill: var(--image);
   position: absolute;
-  top: 0.6rem;
+  top: 0.7rem;
   right: 1rem;
   cursor: pointer;
 
   &:hover {
     fill: var(--color);
+  }
+
+  @media (max-width: 600px) {
+    top: 0.6rem;
   }
 `
 
