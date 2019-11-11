@@ -1,11 +1,13 @@
 import * as actionTypes from './actionTypes'
+import { reverseObject } from '../utils/reverseObject'
 import axios from '../axios-notes'
 
 //Init Note action
 export const initNotes = () => {
   return async dispatch => {
     const response = await axios.get('/notes.json')
-    const data = await response.data
+    let data = await response.data
+    data = reverseObject(data)
     dispatch(initNotesSuccess(data))
   }
 }

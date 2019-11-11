@@ -14,6 +14,7 @@ const EditNote = ({
 }) => {
   const contentRef = React.createRef()
   const [title, setTitle] = useState('')
+  const [content, setContent] = useState('')
   const [localeTime, setLocaleTime] = useState('')
 
   useEffect(() => {
@@ -23,7 +24,9 @@ const EditNote = ({
       document.execCommand('selectAll', false, null)
       document.getSelection().collapseToEnd()
 
+      //Setting states
       setTitle(selectedNote.title)
+      setContent(selectedNote.content)
       setLocaleTime(getLocaleTime(selectedNote.timestamp))
 
       document.body.classList.add('fixed')
@@ -34,19 +37,18 @@ const EditNote = ({
 
   const handleKeyUp = event => {
     if (event.keyCode === 27) onRemoveSelectedNote()
+    setContent(event.target.textContent.trim())
   }
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this Note?')) {
       onDeleteNote(selectedNote.name)
+      onRemoveSelectedNote()
     }
-    onRemoveSelectedNote()
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-
-    let content = contentRef.current.textContent.trim()
 
     if (
       (title !== selectedNote.title || content !== selectedNote.content) &&
@@ -55,8 +57,8 @@ const EditNote = ({
       onUpdateNote({
         name: selectedNote.name,
         title,
+        content,
         timestamp: new Date().valueOf(),
-        content: contentRef.current.textContent,
       })
     }
 
@@ -76,7 +78,7 @@ const EditNote = ({
           />
           <ContentEditable
             innerRef={contentRef}
-            html={selectedNote.content}
+            html={content}
             className="textarea"
             onKeyUp={handleKeyUp}
           />
