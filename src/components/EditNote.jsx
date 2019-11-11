@@ -14,11 +14,17 @@ const EditNote = ({
 }) => {
   const contentRef = React.createRef()
   const [title, setTitle] = useState('')
+  const [localeTime, setLocaleTime] = useState('')
 
   useEffect(() => {
     if (selectedNote) {
+      //For bringing cursor to the end
       contentRef.current.focus()
+      document.execCommand('selectAll', false, null)
+      document.getSelection().collapseToEnd()
+
       setTitle(selectedNote.title)
+      setLocaleTime(getLocaleTime(selectedNote.timestamp))
 
       document.body.classList.add('fixed')
     } else {
@@ -49,6 +55,7 @@ const EditNote = ({
       onUpdateNote({
         name: selectedNote.name,
         title,
+        timestamp: new Date().valueOf(),
         content: contentRef.current.textContent,
       })
     }
@@ -74,6 +81,7 @@ const EditNote = ({
             onKeyUp={handleKeyUp}
           />
           <Footer>
+            <span className="time-stamp">Edited {localeTime}</span>
             <button type="reset" onClick={handleDelete}>
               Delete
             </button>
@@ -83,6 +91,36 @@ const EditNote = ({
       </>
     )
   )
+}
+
+const getLocaleTime = valueOf => {
+  const date = new Date(valueOf)
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  const monthIndex = date.getMonth()
+  const day = date.getDate()
+
+  let hours = date.getHours()
+  const ampm = hours >= 12 ? 'PM' : 'AM'
+  hours = hours % 12
+  hours = hours ? hours : 12
+
+  let minutes = date.getMinutes()
+  minutes = minutes > 0 && minutes < 10 ? '0' + minutes : minutes
+
+  return `${months[monthIndex]} ${day}, ${hours}:${minutes} ${ampm}`
 }
 
 const mapDispatchToProps = dispatch => {

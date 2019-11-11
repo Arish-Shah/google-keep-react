@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const SVG = styled.svg`
   fill: var(--image);
   position: absolute;
-  top: 0.7rem;
+  top: 0.6rem;
   right: 1rem;
   cursor: pointer;
 

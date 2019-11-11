@@ -28,16 +28,6 @@ const reducer = (state = initialState, action) => {
       }
     }
 
-    case actionTypes.UPDATE_NOTE: {
-      console.log(`Updating note: ${action.note.name}`)
-      return state
-    }
-
-    case actionTypes.DELETE_NOTE: {
-      console.log(`Deleting note: ${action.name}`)
-      return state
-    }
-
     default:
       return state
   }

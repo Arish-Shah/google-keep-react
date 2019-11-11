@@ -7,7 +7,7 @@ const Container = styled.div`
 `
 
 const StyledClosedAddNote = styled.div`
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   padding: 0.75rem 1rem;
   font-weight: 500;
   border-radius: var(--radius);

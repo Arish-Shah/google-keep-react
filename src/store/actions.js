@@ -38,16 +38,24 @@ export const removeSelectedNote = () => {
   }
 }
 
+//Update Note Actions
 export const updateNote = note => {
-  return {
-    type: actionTypes.UPDATE_NOTE,
-    note,
+  return async dispatch => {
+    const name = note.name
+    const updatedNote = {
+      title: note.title,
+      content: note.content,
+      timestamp: note.timestamp,
+    }
+    await axios.put(`/notes/${name}.json`, updatedNote)
+    dispatch(initNotes())
   }
 }
 
+//Delete Note Actions
 export const deleteNote = name => {
-  return {
-    type: actionTypes.DELETE_NOTE,
-    name,
+  return async dispatch => {
+    await axios.delete(`/notes/${name}.json`)
+    dispatch(initNotes())
   }
 }

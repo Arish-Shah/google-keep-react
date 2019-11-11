@@ -9,7 +9,7 @@ const StyledNote = styled.div`
   height: auto;
   width: 15rem;
   white-space: pre-wrap;
-  border: 1px solid var(--border);
+  border: 0.5px solid var(--border);
   border-radius: var(--radius);
   background: var(--background);
   margin-bottom: 0.5rem;
@@ -26,7 +26,12 @@ const StyledHeading = styled.h4`
 
 const Note = ({ name, details, onClick }) => {
   const handleClick = () => {
-    onClick({ name, title: details.title, content: details.content })
+    onClick({
+      name,
+      title: details.title,
+      content: details.content,
+      timestamp: details.timestamp,
+    })
   }
 
   return (

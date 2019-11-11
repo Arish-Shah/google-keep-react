@@ -51,9 +51,14 @@ export const StyledModal = styled.form`
 export const Footer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
   padding: 0.5rem 1rem;
   align-items: center;
+
+  span {
+    flex: 5;
+    font-size: 0.75rem;
+    color: var(--placeholder);
+  }
 
   button {
     cursor: pointer;

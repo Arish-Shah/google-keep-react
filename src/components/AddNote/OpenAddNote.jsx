@@ -11,7 +11,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 0.5px solid var(--border);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
 
   * {
@@ -77,6 +77,7 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
     if (!content) return
 
     onAddNote({
+      timestamp: new Date().valueOf(),
       title,
       content,
     })
