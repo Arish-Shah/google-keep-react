@@ -50,7 +50,12 @@ const Notes = ({ notes, onEditNote }) => {
   if (notes) {
     const indices = Object.keys(notes)
     displayContent = indices.map(index => (
-      <Note key={index} details={notes[index]} onClick={handleClick} />
+      <Note
+        key={index}
+        name={index}
+        details={notes[index]}
+        onClick={handleClick}
+      />
     ))
   }
 

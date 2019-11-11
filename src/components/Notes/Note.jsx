@@ -24,9 +24,13 @@ const StyledHeading = styled.h4`
   padding-bottom: 0.5rem;
 `
 
-const Note = ({ details, onClick }) => {
+const Note = ({ name, details, onClick }) => {
+  const handleClick = () => {
+    onClick({ name, title: details.title, content: details.content })
+  }
+
   return (
-    <StyledNote onClick={() => onClick(details)}>
+    <StyledNote onClick={handleClick}>
       {details.title && <StyledHeading>{details.title}</StyledHeading>}
       {details.content && <p>{details.content}</p>}
     </StyledNote>

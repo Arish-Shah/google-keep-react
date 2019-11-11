@@ -32,7 +32,7 @@ const EditNote = ({
 
   const handleDelete = () => {
     if (window.confirm('Are you sure you want to delete this Note?')) {
-      onDeleteNote(selectedNote.id)
+      onDeleteNote(selectedNote.name)
     }
     onRemoveSelectedNote()
   }
@@ -47,7 +47,7 @@ const EditNote = ({
       (title.trim() !== '' || content !== '')
     ) {
       onUpdateNote({
-        id: selectedNote.id,
+        name: selectedNote.name,
         title,
         content: contentRef.current.textContent,
       })
@@ -89,7 +89,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onRemoveSelectedNote: () => dispatch(removeSelectedNote()),
     onUpdateNote: note => dispatch(updateNote(note)),
-    onDeleteNote: id => dispatch(deleteNote(id)),
+    onDeleteNote: name => dispatch(deleteNote(name)),
   }
 }
 

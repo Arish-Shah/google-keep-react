@@ -52,7 +52,7 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   align-items: center;
 
   button {

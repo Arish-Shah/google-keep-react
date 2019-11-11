@@ -61,13 +61,6 @@ const StyledFooter = styled.div`
     }
   }
 `
-
-const _id = () =>
-  '_' +
-  Math.random()
-    .toString(36)
-    .substr(2, 9)
-
 const OpenAddNote = ({ handleClose, onAddNote }) => {
   const contentRef = React.createRef()
 
@@ -78,14 +71,12 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    const id = _id()
     const title = event.target[0].value.trim()
     const content = contentRef.current.textContent.trim()
 
     if (!content) return
 
     onAddNote({
-      id,
       title,
       content,
     })

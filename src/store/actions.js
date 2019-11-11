@@ -32,6 +32,12 @@ export const selectNote = note => {
   }
 }
 
+export const removeSelectedNote = () => {
+  return {
+    type: actionTypes.REMOVE_SELECT_NODE,
+  }
+}
+
 export const updateNote = note => {
   return {
     type: actionTypes.UPDATE_NOTE,
@@ -39,15 +45,9 @@ export const updateNote = note => {
   }
 }
 
-export const removeSelectedNote = () => {
-  return {
-    type: actionTypes.REMOVE_SELECT_NODE,
-  }
-}
-
-export const deleteNote = id => {
+export const deleteNote = name => {
   return {
     type: actionTypes.DELETE_NOTE,
-    id,
+    name,
   }
 }
