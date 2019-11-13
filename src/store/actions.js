@@ -5,10 +5,14 @@ import axios from '../axios-notes'
 //Init Note action
 export const initNotes = () => {
   return async dispatch => {
-    const response = await axios.get('/notes.json')
-    let data = await response.data
-    data = reverseObject(data)
-    dispatch(initNotesSuccess(data))
+    try {
+      const response = await axios.get('/notes.json')
+      let data = await response.data
+      data = reverseObject(data)
+      dispatch(initNotesSuccess(data))
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
@@ -19,14 +23,19 @@ const initNotesSuccess = notes => {
   }
 }
 
-//Add Note action
+//Add Note Action
 export const addNote = note => {
   return async dispatch => {
-    await axios.post('/notes.json', note)
-    dispatch(initNotes())
+    try {
+      await axios.post('/notes.json', note)
+      dispatch(initNotes())
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
+//Select Note Actions
 export const selectNote = note => {
   return {
     type: actionTypes.SELECT_NOTE,
@@ -49,15 +58,23 @@ export const updateNote = note => {
       content: note.content,
       timestamp: note.timestamp,
     }
-    await axios.put(`/notes/${name}.json`, updatedNote)
-    dispatch(initNotes())
+    try {
+      await axios.put(`/notes/${name}.json`, updatedNote)
+      dispatch(initNotes())
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 
 //Delete Note Actions
 export const deleteNote = name => {
   return async dispatch => {
-    await axios.delete(`/notes/${name}.json`)
-    dispatch(initNotes())
+    try {
+      await axios.delete(`/notes/${name}.json`)
+      dispatch(initNotes())
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
