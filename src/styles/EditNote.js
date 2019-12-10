@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledBackdrop = styled.div`
   position: fixed;
@@ -17,7 +17,7 @@ export const StyledBackdrop = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 export const StyledModal = styled.form`
   position: fixed;
@@ -56,7 +56,7 @@ export const StyledModal = styled.form`
     min-height: 3.5rem;
     white-space: pre-wrap;
   }
-`
+`;
 
 export const Footer = styled.div`
   display: flex;
@@ -92,4 +92,4 @@ export const Footer = styled.div`
       }
     }
   }
-`
+`;

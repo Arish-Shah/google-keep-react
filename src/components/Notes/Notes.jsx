@@ -1,16 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import { connect } from 'react-redux'
-import Masonry from 'react-masonry-component'
+import React from 'react';
+import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import Masonry from 'react-masonry-component';
 
-import Note from './Note'
-import { selectNote } from '../../store/actions'
+import Note from './Note';
+import { selectNote } from '../../store/actions';
 
 const masonryOptions = {
   isFitWidth: window.innerWidth > 550 ? true : false,
   gutter: 10,
   transitionDuration: '150ms',
-}
+};
 
 const Container = styled.div`
   padding: 2rem 0;
@@ -20,7 +20,7 @@ const Container = styled.div`
   @media (max-width: 600px) {
     padding: 1.25rem 0;
   }
-`
+`;
 
 const Spinner = styled.div`
   height: 4rem;
@@ -38,17 +38,20 @@ const Spinner = styled.div`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
-const Notes = ({ notes, onEditNote }) => {
+const Notes = ({ onEditNote }) => {
+  const notes = useSelector(state => state.notes);
+  const dispatch = useDispatch();
+
   const handleClick = note => {
-    onEditNote(note)
-  }
+    dispatch(selectNote(note));
+  };
 
-  let displayContent = <Spinner />
+  let displayContent = <Spinner />;
 
   if (notes) {
-    const indices = Object.keys(notes)
+    const indices = Object.keys(notes);
     displayContent = indices.map(index => (
       <Note
         key={index}
@@ -56,7 +59,7 @@ const Notes = ({ notes, onEditNote }) => {
         details={notes[index]}
         onClick={handleClick}
       />
-    ))
+    ));
   }
 
   return (
@@ -65,22 +68,7 @@ const Notes = ({ notes, onEditNote }) => {
         {displayContent}
       </Masonry>
     </Container>
-  )
-}
+  );
+};
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onEditNote: note => dispatch(selectNote(note)),
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Notes)
+export default Notes;

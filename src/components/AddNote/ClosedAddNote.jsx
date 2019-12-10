@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import PlusIcon from '../../assets/plus.js'
+import React from 'react';
+import styled from 'styled-components';
+import PlusIcon from '../../assets/plus.js';
 
 const Container = styled.div`
   position: relative;
-`
+`;
 
 const StyledClosedAddNote = styled.div`
   border: 1px solid var(--border);
@@ -14,13 +14,13 @@ const StyledClosedAddNote = styled.div`
   background: var(--background);
   box-shadow: var(--shadow);
   cursor: text;
-`
+`;
 
 const ClosedAddNote = ({ handleOpen }) => (
   <Container onClick={handleOpen}>
     <StyledClosedAddNote contentEditable={true} placeholder="Take a note..." />
     <PlusIcon />
   </Container>
-)
+);
 
-export default ClosedAddNote
+export default ClosedAddNote;

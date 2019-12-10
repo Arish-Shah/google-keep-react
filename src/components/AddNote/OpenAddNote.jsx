@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-import { addNote } from '../../store/actions'
+import { addNote } from '../../store/actions';
 
 const StyledForm = styled.form`
   position: relative;
@@ -19,13 +19,13 @@ const StyledForm = styled.form`
     color: var(--color);
     background: var(--background);
   }
-`
+`;
 
 const StyledTitle = styled.input`
   font-weight: 500;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-`
+`;
 
 const StyledContent = styled.div`
   resize: none;
@@ -36,7 +36,7 @@ const StyledContent = styled.div`
   max-height: 100vh;
   line-height: 1.5;
   white-space: pre-wrap;
-`
+`;
 
 const StyledFooter = styled.div`
   display: flex;
@@ -60,33 +60,33 @@ const StyledFooter = styled.div`
       color: var(--background);
     }
   }
-`
+`;
 const OpenAddNote = ({ handleClose, onAddNote }) => {
-  const contentRef = React.createRef()
+  const contentRef = React.createRef();
 
   useEffect(() => {
-    contentRef.current.focus()
-  }, [contentRef])
+    contentRef.current.focus();
+  }, [contentRef]);
 
   const handleSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const title = event.target[0].value.trim()
-    const content = contentRef.current.textContent.trim()
+    const title = event.target[0].value.trim();
+    const content = contentRef.current.textContent.trim();
 
-    if (!content) return
+    if (!content) return;
 
     onAddNote({
       timestamp: new Date().valueOf(),
       title,
       content,
-    })
-    handleClose()
-  }
+    });
+    handleClose();
+  };
 
   const handleKeyUp = event => {
-    if (event.keyCode === 27) handleClose()
-  }
+    if (event.keyCode === 27) handleClose();
+  };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -104,16 +104,13 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
         <button type="submit">Add</button>
       </StyledFooter>
     </StyledForm>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     onAddNote: note => dispatch(addNote(note)),
-  }
-}
+  };
+};
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(OpenAddNote)
+export default connect(null, mapDispatchToProps)(OpenAddNote);

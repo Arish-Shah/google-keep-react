@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import keep from '../assets/keep.png'
-import react from '../assets/react.png'
-import firebase from '../assets/firebase.png'
+import keep from '../assets/keep.png';
+import react from '../assets/react.png';
+import firebase from '../assets/firebase.png';
 
 const StyledTopbar = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ const StyledTopbar = styled.div`
   .plus {
     padding: 0 0.9rem;
   }
-`
+`;
 
 const Topbar = () => (
   <StyledTopbar>
@@ -44,6 +44,6 @@ const Topbar = () => (
       <img src={firebase} alt="Firebase" />
     </span>
   </StyledTopbar>
-)
+);
 
-export default Topbar
+export default Topbar;

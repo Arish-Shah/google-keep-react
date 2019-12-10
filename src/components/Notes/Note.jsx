@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledNote = styled.div`
   position: relative;
@@ -17,12 +17,12 @@ const StyledNote = styled.div`
   @media (max-width: 550px) {
     width: 100%;
   }
-`
+`;
 
 const StyledHeading = styled.h4`
   font-weight: 500;
   padding-bottom: 0.5rem;
-`
+`;
 
 const Note = ({ name, details, onClick }) => {
   const handleClick = () => {
@@ -31,15 +31,15 @@ const Note = ({ name, details, onClick }) => {
       title: details.title,
       content: details.content,
       timestamp: details.timestamp,
-    })
-  }
+    });
+  };
 
   return (
     <StyledNote onClick={handleClick}>
       {details.title && <StyledHeading>{details.title}</StyledHeading>}
       {details.content && <p>{details.content}</p>}
     </StyledNote>
-  )
-}
+  );
+};
 
-export default Note
+export default Note;
