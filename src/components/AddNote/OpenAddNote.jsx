@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { addNote } from '../../store/actions';
 
@@ -61,7 +61,8 @@ const StyledFooter = styled.div`
     }
   }
 `;
-const OpenAddNote = ({ handleClose, onAddNote }) => {
+const OpenAddNote = ({ handleClose }) => {
+  const dispatch = useDispatch();
   const contentRef = React.createRef();
 
   useEffect(() => {
@@ -76,11 +77,13 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
 
     if (!content) return;
 
-    onAddNote({
-      timestamp: new Date().valueOf(),
-      title,
-      content,
-    });
+    dispatch(
+      addNote({
+        timestamp: new Date().valueOf(),
+        title,
+        content,
+      })
+    );
     handleClose();
   };
 
@@ -107,10 +110,4 @@ const OpenAddNote = ({ handleClose, onAddNote }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddNote: note => dispatch(addNote(note)),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(OpenAddNote);
+export default OpenAddNote;
