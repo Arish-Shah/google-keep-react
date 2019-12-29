@@ -19,4 +19,4 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 #### Demo
 
-https://arish-shah.github.io/google-keep-react or https://keep-react.netlify.com
+https://arish-shah.github.io/google-keep-react/ or https://keep-react.netlify.com
