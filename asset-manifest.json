@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/google-keep-react/static/js/main.7eac422b.chunk.js",
+    "main.js.map": "/google-keep-react/static/js/main.7eac422b.chunk.js.map",
+    "runtime-main.js": "/google-keep-react/static/js/runtime-main.f74cb802.js",
+    "runtime-main.js.map": "/google-keep-react/static/js/runtime-main.f74cb802.js.map",
+    "static/js/2.b418524f.chunk.js": "/google-keep-react/static/js/2.b418524f.chunk.js",
+    "static/js/2.b418524f.chunk.js.map": "/google-keep-react/static/js/2.b418524f.chunk.js.map",
+    "index.html": "/google-keep-react/index.html",
+    "precache-manifest.a5cb007c153e7da3a7125b1d15b2d4b8.js": "/google-keep-react/precache-manifest.a5cb007c153e7da3a7125b1d15b2d4b8.js",
+    "service-worker.js": "/google-keep-react/service-worker.js",
+    "static/media/firebase.png": "/google-keep-react/static/media/firebase.c24b6b9c.png",
+    "static/media/react.png": "/google-keep-react/static/media/react.47ce6e77.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f74cb802.js",
+    "static/js/2.b418524f.chunk.js",
+    "static/js/main.7eac422b.chunk.js"
+  ]
+}
